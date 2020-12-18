@@ -119,9 +119,9 @@ if ( ! class_exists( 'AIFW_Module_Dependence' ) ) {
 
             return sprintf(
                 /* translators: %1$s is the plugin name and %2%s is the action of click. */
-                __( '<strong>API Improver for WooCommerce</strong> depends of %1$s to work. Click to %2$s.', AIFW_TEXTDOMAIN ),
+                __( '<strong>API Improver for WooCommerce</strong> depends of %1$s to work. Click to %2$s.', 'api-improver-for-woocommerce' ),
                 $plugin->name,
-                '<a href="' . esc_url( $url ) . '">' . __( 'install the plugin', AIFW_TEXTDOMAIN ) . '</a>'
+                '<a href="' . esc_url( $url ) . '">' . __( 'install the plugin', 'api-improver-for-woocommerce' ) . '</a>'
             );
         }
 
@@ -139,9 +139,9 @@ if ( ! class_exists( 'AIFW_Module_Dependence' ) ) {
 
             return sprintf(
                 /* translators: %1$s is the plugin name and %2%s is the action of click. */
-                __( '<strong>API Improver for WooCommerce</strong> depends of %1$s to work. Click to %2$s.', AIFW_TEXTDOMAIN ),
+                __( '<strong>API Improver for WooCommerce</strong> depends of %1$s to work. Click to %2$s.', 'api-improver-for-woocommerce' ),
                 $plugin->name,
-                '<a href="' . esc_url( $url ) . '">' . __( 'activate the plugin', AIFW_TEXTDOMAIN ) . '</a>'
+                '<a href="' . esc_url( $url ) . '">' . __( 'activate the plugin', 'api-improver-for-woocommerce' ) . '</a>'
             );
         }
 

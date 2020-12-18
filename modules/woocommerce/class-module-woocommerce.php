@@ -31,7 +31,7 @@ if ( ! class_exists( 'AIFW_Module_Woocommerce' ) ) {
             $module->add_dependence( 'woocommerce/woocommerce.php', 'WooCommerce', 'woocommerce' );
 
             if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '4.5', '<' ) ) {
-                $notice = __( 'Please update <strong>WooCommerce</strong>. The minimum supported version for <strong>API Improver for WooCommerce</strong> is 4.5.', AIFW_TEXTDOMAIN );
+                $notice = __( 'Please update <strong>WooCommerce</strong>. The minimum supported version for <strong>API Improver for WooCommerce</strong> is 4.5.', 'api-improver-for-woocommerce' );
                 $module->add_dependence_notice( $notice );
             }
 

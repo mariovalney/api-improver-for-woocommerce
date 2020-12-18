@@ -55,7 +55,7 @@ if ( ! class_exists( 'AIFW_Api_V1_Products' ) ) {
                 return $properties;
             }
 
-            $properties['categories']['items']['properties']['id']['description'] = __( 'Category ID (if empty we will search for a Category by name or slug).', AIFW_TEXTDOMAIN );
+            $properties['categories']['items']['properties']['id']['description'] = __( 'Category ID (if empty we will search for a Category by name or slug).', 'api-improver-for-woocommerce' );
 
             return $properties;
         }

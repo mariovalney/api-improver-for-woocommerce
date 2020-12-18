@@ -278,7 +278,7 @@ if ( ! class_exists( 'API_Improver_For_WooCommerce' ) ) {
          * @access   private
          */
         public function load_plugin_textdomain() {
-            load_plugin_textdomain( AIFW_TEXTDOMAIN, false, basename( dirname( __FILE__ ) ) . '/languages/' );
+            load_plugin_textdomain( 'api-improver-for-woocommerce', false, basename( dirname( __FILE__ ) ) . '/languages/' );
         }
 
         /**
@@ -294,11 +294,6 @@ if ( ! class_exists( 'API_Improver_For_WooCommerce' ) ) {
             define( 'AIFW_PLUGIN_PATH', WP_PLUGIN_DIR . '/' . dirname( AIFW_PLUGIN_BASENAME ) );
             define( 'AIFW_PLUGIN_DIR', dirname( AIFW_PLUGIN_BASENAME ) );
             define( 'AIFW_PLUGIN_URL', plugins_url( '', __FILE__ ) );
-
-            // Definition of text domain
-            if ( ! defined( 'AIFW_TEXTDOMAIN' ) ) {
-                define( 'AIFW_TEXTDOMAIN', 'api-improver-for-woocommerce' );
-            }
 
             // Running Modules
             foreach ( $this->modules as $module_slug => $module ) {
