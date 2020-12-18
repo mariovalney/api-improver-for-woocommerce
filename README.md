@@ -73,8 +73,8 @@ Yes! Visit [GitHub repository](https://github.com/mariovalney/api-improver-for-w
 
 ## Screenshots ##
 
-### 1. Nothing to see ###
-![1. Nothing to see](http://ps.w.org/api-improver-for-woocommerce/assets/screenshot-1.png)
+### 1. Request to create/update a Product with a category by name ###
+![1. Request to create/update a Product with a category by name](http://ps.w.org/api-improver-for-woocommerce/assets/screenshot-1.png)
 
 
 ## Changelog ##

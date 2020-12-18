@@ -73,7 +73,7 @@ Yes! Visit [GitHub repository](https://github.com/mariovalney/api-improver-for-w
 
 == Screenshots ==
 
-1. Nothing to see
+1. Request to create/update a Product with a category by name
 
 == Changelog ==
 
