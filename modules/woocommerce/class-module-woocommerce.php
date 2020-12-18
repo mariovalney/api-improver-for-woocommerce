@@ -1,13 +1,13 @@
 <?php
 
 /**
- * WAI_Module_Woocommerce
+ * AIFW_Module_Woocommerce
  * Class responsible to manage all WooCommerce stuff
  *
  * Depends: dependence
  *
- * @package         Woo_API_Improver
- * @subpackage      WAI_Module_Woocommerce
+ * @package         API_Improver_For_WooCommerce
+ * @subpackage      AIFW_Module_Woocommerce
  * @since           1.0.0
  *
  */
@@ -15,9 +15,9 @@
 // If this file is called directly, call the cops.
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
-if ( ! class_exists( 'WAI_Module_Woocommerce' ) ) {
+if ( ! class_exists( 'AIFW_Module_Woocommerce' ) ) {
 
-    class WAI_Module_Woocommerce {
+    class AIFW_Module_Woocommerce {
 
         /**
          * Run
@@ -31,7 +31,7 @@ if ( ! class_exists( 'WAI_Module_Woocommerce' ) ) {
             $module->add_dependence( 'woocommerce/woocommerce.php', 'WooCommerce', 'woocommerce' );
 
             if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '9.5', '<' ) ) {
-                $notice = __( 'Please update <strong>WooCommerce</strong>. The minimum supported version for <strong>API Improver for WooCommerce</strong> is 4.5.', WAI_TEXTDOMAIN );
+                $notice = __( 'Please update <strong>WooCommerce</strong>. The minimum supported version for <strong>API Improver for WooCommerce</strong> is 4.5.', AIFW_TEXTDOMAIN );
                 $module->add_dependence_notice( $notice );
             }
 
@@ -45,11 +45,11 @@ if ( ! class_exists( 'WAI_Module_Woocommerce' ) ) {
          * Define hooks
          *
          * @since    1.0.0
-         * @param    Woo_API_Improver      $core   The Core object
+         * @param    API_Improver_For_WooCommerce      $core   The Core object
          */
         public function define_hooks() {
-            WAI_Api_V1_Products::filter( 'woocommerce_rest_product_schema' );
-            WAI_Api_V1_Products::filter( 'woocommerce_rest_pre_insert_product_object', 2 );
+            AIFW_Api_V1_Products::filter( 'woocommerce_rest_product_schema' );
+            AIFW_Api_V1_Products::filter( 'woocommerce_rest_pre_insert_product_object', 2 );
         }
 
     }

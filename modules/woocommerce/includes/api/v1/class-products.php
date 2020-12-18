@@ -1,9 +1,9 @@
 <?php
 
 /**
- * WAI_Api_V1_Products
+ * AIFW_Api_V1_Products
  *
- * @package         Woo_API_Improver
+ * @package         API_Improver_For_WooCommerce
  * @since           1.0.0
  *
  */
@@ -11,9 +11,9 @@
 // If this file is called directly, call the cops.
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
-if ( ! class_exists( 'WAI_Api_V1_Products' ) ) {
+if ( ! class_exists( 'AIFW_Api_V1_Products' ) ) {
 
-    class WAI_Api_V1_Products extends WAI_Hook_Base {
+    class AIFW_Api_V1_Products extends AIFW_Hook_Base {
 
         /**
          * Filter: 'woocommerce_rest_pre_insert_product_object'
@@ -55,7 +55,7 @@ if ( ! class_exists( 'WAI_Api_V1_Products' ) ) {
                 return $properties;
             }
 
-            $properties['categories']['items']['properties']['id']['description'] = __( 'Category ID (if empty we will search for a Category by name or slug).', WAI_TEXTDOMAIN );
+            $properties['categories']['items']['properties']['id']['description'] = __( 'Category ID (if empty we will search for a Category by name or slug).', AIFW_TEXTDOMAIN );
 
             return $properties;
         }

@@ -1,10 +1,10 @@
 <?php
 
 /**
- * WAI_Hook_Base
+ * AIFW_Hook_Base
  * Help create another filters
  *
- * @package         Woo_API_Improver
+ * @package         API_Improver_For_WooCommerce
  * @since           1.0.0
  *
  */
@@ -12,14 +12,14 @@
 // If this file is called directly, call the cops.
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
-if ( ! class_exists( 'WAI_Hook_Base' ) ) {
+if ( ! class_exists( 'AIFW_Hook_Base' ) ) {
 
-    class WAI_Hook_Base {
+    class AIFW_Hook_Base {
 
         /**
          * Class instance.
          *
-         * @var WAI_Hook_Base child instance
+         * @var AIFW_Hook_Base child instance
          */
         protected static $instance = false;
 
@@ -47,7 +47,7 @@ if ( ! class_exists( 'WAI_Hook_Base' ) ) {
             $instance = self::get_instance();
             $method = 'filter_' . $hook;
 
-            $core = Woo_API_Improver::instance();
+            $core = API_Improver_For_WooCommerce::instance();
             $core->add_filter( $hook, array( $instance, $method ), $priority, $args );
         }
 
@@ -64,7 +64,7 @@ if ( ! class_exists( 'WAI_Hook_Base' ) ) {
             $instance = self::get_instance();
             $method = 'action_' . $hook;
 
-            $core = Woo_API_Improver::instance();
+            $core = API_Improver_For_WooCommerce::instance();
             $core->add_action( $hook, array( $instance, $method ), $priority, $args );
         }
 

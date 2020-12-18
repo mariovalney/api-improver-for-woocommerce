@@ -1,6 +1,6 @@
 # API Improver for WooCommerce #
 **Contributors:** mariovalney  
-**Donate link:** https://github.com/mariovalney/woo-api-improver  
+**Donate link:** https://github.com/mariovalney/api-improver-for-woocommerce  
 **Tags:** woocommerce, api, rest, products, mariovalney  
 **Requires at least:** 4.7  
 **Tested up to:** 5.6  
@@ -33,11 +33,11 @@ Just activate "API Improver for WooCommerce" and it's done. No configurations.
 
 ### Translations ###
 
-You can [translate API Improver for WooCommerce](https://translate.wordpress.org/projects/wp-plugins/woo-api-improver) to your language.
+You can [translate API Improver for WooCommerce](https://translate.wordpress.org/projects/wp-plugins/api-improver-for-woocommerce) to your language.
 
 ### Review ###
 
-We would be grateful for a [review here](https://wordpress.org/support/plugin/woo-api-improver/reviews/).
+We would be grateful for a [review here](https://wordpress.org/support/plugin/api-improver-for-woocommerce/reviews/).
 
 ### Support ###
 
@@ -55,7 +55,7 @@ Next
 
 Or
 
-* Upload the entire `woo-api-improver` folder to the `/wp-content/plugins/` directory.
+* Upload the entire `api-improver-for-woocommerce` folder to the `/wp-content/plugins/` directory.
 
 Then
 
@@ -69,7 +69,7 @@ Nope. The intention here is to improve WooCommerce API REST.
 
 ### Can I help you? ###
 
-Yes! Visit [GitHub repository](https://github.com/mariovalney/woo-api-improver).
+Yes! Visit [GitHub repository](https://github.com/mariovalney/api-improver-for-woocommerce).
 
 ## Screenshots ##
 

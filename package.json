@@ -1,5 +1,5 @@
 {
-  "name": "woo-api-improver",
+  "name": "api-improver-for-woocommerce",
   "version": "1.0.0",
   "description": "A plugin to improve your API REST.",
   "author": "Mário Valney",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mariovalney/woo-api-improver"
+    "url": "https://github.com/mariovalney/api-improver-for-woocommerce"
   },
   "keywords": [
     "WooCommerce",
     "WordPress"
   ],
   "license": "GPLv2 or later",
-  "homepage": "https://github.com/mariovalney/woo-api-improver",
+  "homepage": "https://github.com/mariovalney/api-improver-for-woocommerce",
   "browserslist": [
     "last 2 versions"
   ],

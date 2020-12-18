@@ -72,7 +72,7 @@ var trunk_files = [
     './index.php',
     './LICENSE.txt',
     './readme.txt',
-    './woo-api-improver.php'
+    './api-improver-for-woocommerce.php'
 ];
 
 function build() {

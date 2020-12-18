@@ -1,11 +1,11 @@
 <?php
 
 /**
- * WAI_Module_Dependence
+ * AIFW_Module_Dependence
  * Module to notify about dependencies
  *
- * @package         Woo_API_Improver
- * @subpackage      WAI_Module_Woocommerce
+ * @package         API_Improver_For_WooCommerce
+ * @subpackage      AIFW_Module_Woocommerce
  * @since           1.0.0
  *
  */
@@ -13,9 +13,9 @@
 // If this file is called directly, call the cops.
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
-if ( ! class_exists( 'WAI_Module_Dependence' ) ) {
+if ( ! class_exists( 'AIFW_Module_Dependence' ) ) {
 
-    class WAI_Module_Dependence {
+    class AIFW_Module_Dependence {
 
         /**
          * List of dependencies to check
@@ -101,7 +101,7 @@ if ( ! class_exists( 'WAI_Module_Dependence' ) ) {
         public function admin_notices() {
             foreach ( $this->notices as $notice ) {
                 $notice = $notice;
-                include_once WAI_PLUGIN_PATH . '/modules/dependence/includes/views/html-notice.php';
+                include_once AIFW_PLUGIN_PATH . '/modules/dependence/includes/views/html-notice.php';
             }
         }
 
@@ -119,9 +119,9 @@ if ( ! class_exists( 'WAI_Module_Dependence' ) ) {
 
             return sprintf(
                 /* translators: %1$s is the plugin name and %2%s is the action of click. */
-                __( '<strong>API Improver for WooCommerce</strong> depends of %1$s to work. Click to %2$s.', WAI_TEXTDOMAIN ),
+                __( '<strong>API Improver for WooCommerce</strong> depends of %1$s to work. Click to %2$s.', AIFW_TEXTDOMAIN ),
                 $plugin->name,
-                '<a href="' . esc_url( $url ) . '">' . __( 'install the plugin', WAI_TEXTDOMAIN ) . '</a>'
+                '<a href="' . esc_url( $url ) . '">' . __( 'install the plugin', AIFW_TEXTDOMAIN ) . '</a>'
             );
         }
 
@@ -139,9 +139,9 @@ if ( ! class_exists( 'WAI_Module_Dependence' ) ) {
 
             return sprintf(
                 /* translators: %1$s is the plugin name and %2%s is the action of click. */
-                __( '<strong>API Improver for WooCommerce</strong> depends of %1$s to work. Click to %2$s.', WAI_TEXTDOMAIN ),
+                __( '<strong>API Improver for WooCommerce</strong> depends of %1$s to work. Click to %2$s.', AIFW_TEXTDOMAIN ),
                 $plugin->name,
-                '<a href="' . esc_url( $url ) . '">' . __( 'activate the plugin', WAI_TEXTDOMAIN ) . '</a>'
+                '<a href="' . esc_url( $url ) . '">' . __( 'activate the plugin', AIFW_TEXTDOMAIN ) . '</a>'
             );
         }
 

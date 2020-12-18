@@ -2,19 +2,19 @@
 
 /**
  * Plugin Name:     API Improver for WooCommerce
- * Plugin URI:      https://github.com/mariovalney/woo-api-improver
+ * Plugin URI:      https://github.com/mariovalney/api-improver-for-woocommerce
  * Description:     Improve your WooCommerce API REST
  * Version:         1.0.0
  * License:         GPLv2 or later
  * Author:          Mário Valney
  * Author URI:      https://mariovalney.com
- * Text Domain:     woo-api-improver
+ * Text Domain:     api-improver-for-woocommerce
  * Domain Path:     /languages
  *
  * WC requires at least: 4.5
  * WC tested up to: 4.8
  *
- * @package         Woo_API_Improver
+ * @package         API_Improver_For_WooCommerce
  * @since           1.0.0
  *
  * @SuppressWarnings(PHPMD.CyclomaticComplexity)
@@ -24,9 +24,9 @@
 // If this file is called directly, call the cops.
 defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
 
-if ( ! class_exists( 'Woo_API_Improver' ) ) {
+if ( ! class_exists( 'API_Improver_For_WooCommerce' ) ) {
 
-    class Woo_API_Improver {
+    class API_Improver_For_WooCommerce {
 
         /**
          * The single instance of the class.
@@ -68,7 +68,7 @@ if ( ! class_exists( 'Woo_API_Improver' ) ) {
          * You know singleton...
          *
          * @since 1.0.0
-         * @return Woo_API_Improver
+         * @return API_Improver_For_WooCommerce
          */
         public static function instance() {
             if ( is_null( self::$instance ) ) {
@@ -94,7 +94,7 @@ if ( ! class_exists( 'Woo_API_Improver' ) ) {
          * @since    1.0.0
          */
         public function on_activation() {
-            do_action( 'wai_on_core_activation' );
+            do_action( 'aifw_on_core_activation' );
 
             wp_cache_flush();
             flush_rewrite_rules();
@@ -147,7 +147,7 @@ if ( ! class_exists( 'Woo_API_Improver' ) ) {
                 $classname = str_replace( '-', ' ', $result );
                 $classname = ucfirst( $classname );
                 $classname = str_replace( ' ', '_', $classname );
-                $classname = 'WAI_Module_' . $classname;
+                $classname = 'AIFW_Module_' . $classname;
 
                 $module_data  = get_file_data( $classfile, array( 'dependencies' => 'Depends' ) );
                 $dependencies = $module_data['dependencies'];
@@ -278,7 +278,7 @@ if ( ! class_exists( 'Woo_API_Improver' ) ) {
          * @access   private
          */
         public function load_plugin_textdomain() {
-            load_plugin_textdomain( WAI_TEXTDOMAIN, false, basename( dirname( __FILE__ ) ) . '/languages/' );
+            load_plugin_textdomain( AIFW_TEXTDOMAIN, false, basename( dirname( __FILE__ ) ) . '/languages/' );
         }
 
         /**
@@ -288,16 +288,16 @@ if ( ! class_exists( 'Woo_API_Improver' ) ) {
          */
         public function run() {
             // Definitions to plugin
-            define( 'WAI_VERSION', '1.0.0' );
-            define( 'WAI_PLUGIN_FILE', __FILE__ );
-            define( 'WAI_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-            define( 'WAI_PLUGIN_PATH', WP_PLUGIN_DIR . '/' . dirname( WAI_PLUGIN_BASENAME ) );
-            define( 'WAI_PLUGIN_DIR', dirname( WAI_PLUGIN_BASENAME ) );
-            define( 'WAI_PLUGIN_URL', plugins_url( '', __FILE__ ) );
+            define( 'AIFW_VERSION', '1.0.0' );
+            define( 'AIFW_PLUGIN_FILE', __FILE__ );
+            define( 'AIFW_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+            define( 'AIFW_PLUGIN_PATH', WP_PLUGIN_DIR . '/' . dirname( AIFW_PLUGIN_BASENAME ) );
+            define( 'AIFW_PLUGIN_DIR', dirname( AIFW_PLUGIN_BASENAME ) );
+            define( 'AIFW_PLUGIN_URL', plugins_url( '', __FILE__ ) );
 
             // Definition of text domain
-            if ( ! defined( 'WAI_TEXTDOMAIN' ) ) {
-                define( 'WAI_TEXTDOMAIN', 'woo-api-improver' );
+            if ( ! defined( 'AIFW_TEXTDOMAIN' ) ) {
+                define( 'AIFW_TEXTDOMAIN', 'api-improver-for-woocommerce' );
             }
 
             // Running Modules
@@ -310,7 +310,7 @@ if ( ! class_exists( 'Woo_API_Improver' ) ) {
                 // Include Files if Configured
                 if ( property_exists( $module, 'includes' ) ) {
                     foreach ( (array) $module->includes as $class ) {
-                        $file = WAI_PLUGIN_PATH . '/modules/' . $module_slug . '/includes/' . $class . '.php';
+                        $file = AIFW_PLUGIN_PATH . '/modules/' . $module_slug . '/includes/' . $class . '.php';
                         if ( file_exists( $file ) ) {
                             require_once $file;
                         }
@@ -348,14 +348,14 @@ if ( ! class_exists( 'Woo_API_Improver' ) ) {
 /**
  * Making things happening
  */
-$core = Woo_API_Improver::instance();
+$core = API_Improver_For_WooCommerce::instance();
 add_action( 'plugins_loaded', array( $core, 'run' ), 99 );
 
 /**
  * A global function like WC()
  */
-function Woo_API_Improver() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
-    $modules = Woo_API_Improver::instance()->get_modules();
+function API_Improver_For_WooCommerce() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+    $modules = API_Improver_For_WooCommerce::instance()->get_modules();
     if ( empty( $modules ) ) {
         error_log( 'You cannot call before run method' );
     }
