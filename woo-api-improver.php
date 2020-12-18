@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name:     Woo API Improver
+ * Plugin Name:     API Improver for WooCommerce
  * Plugin URI:      https://github.com/mariovalney/woo-api-improver
  * Description:     Improve your WooCommerce API REST
  * Version:         1.0.0
@@ -29,6 +29,14 @@ if ( ! class_exists( 'Woo_API_Improver' ) ) {
     class Woo_API_Improver {
 
         /**
+         * The single instance of the class.
+         *
+         * @var WooCommerce
+         * @since 1.0.0
+         */
+        protected static $instance = null;
+
+        /**
          * The array of actions registered with WordPress.
          *
          * @since    1.0.0
@@ -54,6 +62,21 @@ if ( ! class_exists( 'Woo_API_Improver' ) ) {
          * @var      array    $modules    The modules to be used in this plugin.
          */
         protected $modules = array();
+
+        /**
+         * Main Instance.
+         * You know singleton...
+         *
+         * @since 1.0.0
+         * @return Woo_API_Improver
+         */
+        public static function instance() {
+            if ( is_null( self::$instance ) ) {
+                self::$instance = new self();
+            }
+
+            return self::$instance;
+        }
 
         /**
          * Define the core functionality of the plugin.
@@ -325,7 +348,17 @@ if ( ! class_exists( 'Woo_API_Improver' ) ) {
 /**
  * Making things happening
  */
-global $wai_core;
+$core = Woo_API_Improver::instance();
+add_action( 'plugins_loaded', array( $core, 'run' ), 99 );
 
-$wai_core = new Woo_API_Improver();
-add_action( 'plugins_loaded', array( $wai_core, 'run' ) );
+/**
+ * A global function like WC()
+ */
+function Woo_API_Improver() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+    $modules = Woo_API_Improver::instance()->get_modules();
+    if ( empty( $modules ) ) {
+        error_log( 'You cannot call before run method' );
+    }
+
+    return $modules;
+}

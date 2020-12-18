@@ -1,4 +1,4 @@
-# Woo API Improver #
+# API Improver for WooCommerce #
 **Contributors:** mariovalney  
 **Donate link:** https://github.com/mariovalney/woo-api-improver  
 **Tags:** woocommerce, api, rest, products, mariovalney  
@@ -19,15 +19,21 @@ Improve your WooCommerce API REST without config.
 
 It's awesome and we love it but sometimes we need more from API REST.
 
+## Endpoints ##
+
+### /products ###
+
+Will search for a category by "name" and "slug" (in this order) if "id" is not provided.
+
 ### How to Use ###
 
 Easy and quick!
 
-Just activate "Woo API Improver" and it's done. No configurations.
+Just activate "API Improver for WooCommerce" and it's done. No configurations.
 
 ### Translations ###
 
-You can [translate Woo API Improver](https://translate.wordpress.org/projects/wp-plugins/woo-api-improver) to your language.
+You can [translate API Improver for WooCommerce](https://translate.wordpress.org/projects/wp-plugins/woo-api-improver) to your language.
 
 ### Review ###
 
@@ -45,7 +51,7 @@ First
 
 Next
 
-* Install "Woo API Improver" by plugins dashboard.
+* Install "API Improver for WooCommerce" by plugins dashboard.
 
 Or
 
@@ -68,7 +74,7 @@ Yes! Visit [GitHub repository](https://github.com/mariovalney/woo-api-improver).
 ## Screenshots ##
 
 ### 1. Nothing to see ###
-![1. Nothing to see](http://ps.w.org/woo-api-improver/assets/screenshot-1.png)
+![1. Nothing to see](http://ps.w.org/api-improver-for-woocommerce/assets/screenshot-1.png)
 
 
 ## Changelog ##
