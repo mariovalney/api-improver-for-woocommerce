@@ -23,6 +23,10 @@ if ( ! class_exists( 'AIFW_Api_V3_Products_Controller' ) && class_exists( 'WC_RE
          * @return WP_Error|WC_Data
          */
         protected function prepare_object_for_database( $request, $creating = false ) {
+            if ( ! empty( $request['attributes'] ) ) {
+                $request['attributes'] = $this->search_attributes_without_id( $request['attributes'] );
+            }
+
             if ( ! empty( $request['categories'] ) ) {
                 $request['categories'] = $this->search_terms_without_id( $request['categories'], 'product_cat' );
             }
@@ -32,6 +36,30 @@ if ( ! class_exists( 'AIFW_Api_V3_Products_Controller' ) && class_exists( 'WC_RE
             }
 
             return parent::prepare_object_for_database( $request, $creating );
+        }
+
+        /**
+         * Add attributes without ID to attributes array.
+         *
+         * @param  array  $attributes  Request object value for attributes.
+         * @return array
+         */
+        private function search_attributes_without_id( $attributes ) {
+            foreach ( $attributes as $key => $value ) {
+                if ( ! empty( $value['id'] ) ) {
+                    continue;
+                }
+
+                if ( ! empty( $value['name'] ) ) {
+                    $attribute_id = wc_attribute_taxonomy_id_by_name( $value['name'] );
+                    if ( ! empty( $attribute_id ) ) {
+                        $attributes[ $key ]['id'] = $attribute_id;
+                        continue;
+                    }
+                }
+            }
+
+            return $attributes;
         }
 
         /**
