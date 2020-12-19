@@ -83,7 +83,8 @@ Yes! Visit [GitHub repository](https://github.com/mariovalney/api-improver-for-w
 
 == Screenshots ==
 
-1. Request to create/update a Product
+1. Request to create a Product with a category without ID.
+2. Example to update a Product with both categories with and without ID.
 
 == Changelog ==
 

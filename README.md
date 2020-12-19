@@ -83,8 +83,11 @@ Yes! Visit [GitHub repository](https://github.com/mariovalney/api-improver-for-w
 
 ## Screenshots ##
 
-### 1. Request to create/update a Product ###
-![1. Request to create/update a Product](http://ps.w.org/api-improver-for-woocommerce/assets/screenshot-1.png)
+### 1. Request to create a Product with a category without ID. ###
+![1. Request to create a Product with a category without ID.](http://ps.w.org/api-improver-for-woocommerce/assets/screenshot-1.png)
+
+### 2. Example to update a Product with both categories with and without ID. ###
+![2. Example to update a Product with both categories with and without ID.](http://ps.w.org/api-improver-for-woocommerce/assets/screenshot-2.png)
 
 
 ## Changelog ##
