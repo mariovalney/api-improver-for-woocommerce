@@ -18,7 +18,7 @@ if ( ! class_exists( 'AIFW_Api_V3_Products_Controller' ) && class_exists( 'WC_RE
         /**
          * Prepare a single product for create or update.
          *
-         * @param  WP_REST_Request $request Request object.
+         * @param  WP_REST_Request $request  Request object.
          * @param  bool            $creating If is creating a new object.
          * @return WP_Error|WC_Data
          */
@@ -34,6 +34,14 @@ if ( ! class_exists( 'AIFW_Api_V3_Products_Controller' ) && class_exists( 'WC_RE
             if ( ! empty( $request['tags'] ) ) {
                 $request['tags'] = $this->search_terms_without_id( $request['tags'], 'product_tag' );
             }
+
+            /**
+             * Filter request before prepare object for database.
+             *
+             * @param  WP_REST_Request $request  Request object.
+             * @param  bool            $creating If is creating a new object.
+             */
+            $request = apply_filters( 'aifw_api_v3_products_request_for_prepare_object_for_database', $request, $creating );
 
             return parent::prepare_object_for_database( $request, $creating );
         }

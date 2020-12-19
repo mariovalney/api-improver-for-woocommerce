@@ -21,11 +21,15 @@ It's awesome and we love it but sometimes we need more from API REST.
 
 == Endpoints ==
 
+We support V3.
+
 = /products =
 
 Will search for a category/tag by "name" and "slug" (in this order) if "id" is not provided.
 
 In both cases, **we will not** create a new product category or tag. You can use the "aifw_api_v1_products_search_for_terms" filter to create it and return the "term_id".
+
+Will search for attribute ID if it's not provided. Check [wc_attribute_taxonomy_id_by_name](https://woocommerce.github.io/code-reference/files/woocommerce-includes-wc-attribute-functions.html#function_wc_attribute_taxonomy_id_by_name) for more details.
 
 = How to Use =
 
@@ -43,7 +47,7 @@ We would be grateful for a [review here](https://wordpress.org/support/plugin/ap
 
 = Support =
 
-* WooCommerce - 4.8
+* WooCommerce - 4.8 (API Version 3 supports 3.5.x or later, but we did not test it)
 
 == Installation ==
 
@@ -69,19 +73,25 @@ Then
 
 Nope. The intention here is to improve WooCommerce API REST.
 
+= I want to add my customization to endpoints =
+
+Check filters on endpoints classes with "request_for_prepare_object_for_database" end.
+
 = Can I help you? =
 
 Yes! Visit [GitHub repository](https://github.com/mariovalney/api-improver-for-woocommerce).
 
 == Screenshots ==
 
-1. Request to create/update a Product with a category by name
+1. Request to create/update a Product
 
 == Changelog ==
 
 = 1.0 =
 
 * It's alive!
+* Improved endpoint "/products" to accept category/tag by "name" and "slug" if "id" is not provided.
+* Improved endpoint "/products" to search for taxonomies by "name" for attributes if "id" is not provided.
 
 == Upgrade Notice ==
 
