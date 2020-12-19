@@ -1,0 +1,95 @@
+<?php
+
+/**
+ * AIFW_Api_V3_Products_Controller
+ *
+ * @package         API_Improver_For_WooCommerce
+ * @since           1.0.0
+ *
+ */
+
+// If this file is called directly, call the cops.
+defined( 'ABSPATH' ) || die( 'No script kiddies please!' );
+
+if ( ! class_exists( 'AIFW_Api_V3_Products_Controller' ) && class_exists( 'WC_REST_Products_Controller' ) ) {
+
+    class AIFW_Api_V3_Products_Controller extends WC_REST_Products_Controller {
+
+        /**
+         * Prepare a single product for create or update.
+         *
+         * @param  WP_REST_Request $request Request object.
+         * @param  bool            $creating If is creating a new object.
+         * @return WP_Error|WC_Data
+         */
+        protected function prepare_object_for_database( $request, $creating = false ) {
+            if ( ! empty( $request['categories'] ) ) {
+                $request['categories'] = $this->search_terms_without_id( $request['categories'], 'product_cat' );
+            }
+
+            if ( ! empty( $request['tags'] ) ) {
+                $request['tags'] = $this->search_terms_without_id( $request['tags'], 'product_tag' );
+            }
+
+            return parent::prepare_object_for_database( $request, $creating );
+        }
+
+        /**
+         * Add terms without ID to terms array.
+         *
+         * @param  array  $terms    Request object value for term.
+         * @param  string $taxonomy Taxonomy we are searching.
+         * @return array
+         */
+        private function search_terms_without_id( $terms, $taxonomy ) {
+            foreach ( $terms as $key => $value ) {
+                if ( ! empty( $value['id'] ) ) {
+                    continue;
+                }
+
+                $term_id = $this->search_for_terms( $value, $taxonomy );
+                if ( empty( $term_id ) ) {
+                    continue;
+                }
+
+                $terms[ $key ]['id'] = $term_id;
+            }
+
+            return $terms;
+        }
+
+        /**
+         * Search for a category by name or slug
+         *
+         * @return integer
+         */
+        private function search_for_terms( $params, $taxonomy ) {
+            if ( ! empty( $params['name'] ) ) {
+                $term = get_term_by( 'name', $params['name'], $taxonomy );
+                if ( ! empty( $term ) && ! empty( $term->term_id ) ) {
+                    return (int) $term->term_id;
+                }
+            }
+
+            if ( ! empty( $params['slug'] ) ) {
+                $term = get_term_by( 'slug', $params['slug'], $taxonomy );
+                if ( ! empty( $term ) && ! empty( $term->term_id ) ) {
+                    return (int) $term->term_id;
+                }
+            }
+
+            /**
+             * Filter when we are not able to find a term by name/slug.
+             *
+             * Return a empty value to ignore or a valid ID to be added to Product.
+             * You can use it to create a term and return it ID, for example.
+             *
+             * @param integer $term_id  The category/tag ID.
+             * @param array   $params   The category/tag object.
+             * @param string  $taxonomy The taxonomy (product_cat|product_tag).
+             */
+            return apply_filters( 'aifw_api_v3_products_search_for_terms', 0, $params, $taxonomy );
+        }
+    }
+
+}

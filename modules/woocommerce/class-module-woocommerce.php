@@ -36,8 +36,7 @@ if ( ! class_exists( 'AIFW_Module_Woocommerce' ) ) {
             }
 
             $this->includes = array(
-                'api/class-hook-base',
-                'api/v1/class-products',
+                'api/v3/class-products',
             );
         }
 
@@ -48,8 +47,25 @@ if ( ! class_exists( 'AIFW_Module_Woocommerce' ) ) {
          * @param    API_Improver_For_WooCommerce      $core   The Core object
          */
         public function define_hooks() {
-            AIFW_Api_V1_Products::filter( 'woocommerce_rest_product_schema' );
-            AIFW_Api_V1_Products::filter( 'woocommerce_rest_pre_insert_product_object', 2 );
+            $this->core->add_filter( 'woocommerce_rest_api_get_rest_namespaces', array( $this, 'woocommerce_rest_api_get_rest_namespaces' ), 10, 1 );
+        }
+
+        /**
+         * Filter: 'woocommerce_rest_api_get_rest_namespaces'
+         *
+         * @see wp-content/plugins/woocommerce/includes/rest-api/Server.php:53
+         * @return array
+         */
+        public function woocommerce_rest_api_get_rest_namespaces( $namespaces ) {
+            $v3_controllers = array(
+                'products' => 'AIFW_Api_V3_Products_Controller',
+            );
+
+            if ( ! empty( $namespaces['wc/v3'] ) ) {
+                $namespaces['wc/v3'] = array_merge( $namespaces['wc/v3'], $v3_controllers );
+            }
+
+            return $namespaces;
         }
 
     }
