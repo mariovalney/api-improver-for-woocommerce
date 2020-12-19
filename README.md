@@ -23,7 +23,9 @@ It's awesome and we love it but sometimes we need more from API REST.
 
 ### /products ###
 
-Will search for a category by "name" and "slug" (in this order) if "id" is not provided.
+Will search for a category/tag by "name" and "slug" (in this order) if "id" is not provided.
+
+In both cases, **we will not** create a new product category or tag. You can use the "aifw_api_v1_products_search_for_terms" filter to create it and return the "term_id".
 
 ### How to Use ###
 
