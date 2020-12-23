@@ -25,11 +25,11 @@ We support V3.
 
 = /products =
 
-Will search for a category/tag by "name" and "slug" (in this order) if "id" is not provided.
+* Will search for a category/tag by "name" and "slug" (in this order) if "id" is not provided.
 
 In both cases, **we will not** create a new product category or tag. You can use the "aifw_api_v1_products_search_for_terms" filter to create it and return the "term_id".
 
-Will search for attribute ID if it's not provided. Check [wc_attribute_taxonomy_id_by_name](https://woocommerce.github.io/code-reference/files/woocommerce-includes-wc-attribute-functions.html#function_wc_attribute_taxonomy_id_by_name) for more details.
+* Will search for attribute ID if it's not provided. Check [wc_attribute_taxonomy_id_by_name](https://woocommerce.github.io/code-reference/files/woocommerce-includes-wc-attribute-functions.html#function_wc_attribute_taxonomy_id_by_name) for more details.
 
 = How to Use =
 
@@ -47,7 +47,9 @@ We would be grateful for a [review here](https://wordpress.org/support/plugin/ap
 
 = Support =
 
-* WooCommerce - 4.8 (API Version 3 supports 3.5.x or later, but we did not test it)
+* WooCommerce - 4.8
+
+(API Version 3 supports 3.5.x or later, but we did not test it)
 
 == Installation ==
 
@@ -75,7 +77,11 @@ Nope. The intention here is to improve WooCommerce API REST.
 
 = I want to add my customization to endpoints =
 
-Check filters on endpoints classes with "request_for_prepare_object_for_database" end.
+For products, you can use the filter "aifw_api_v3_products_request_for_prepare_object_for_database" to change the request.
+
+= Is there a way to create categories or attributes? =
+
+We will not create new terms but you can use the "aifw_api_v3_products_term_not_found". [Example](https://gist.github.com/mariovalney/78090bd7eaa064d6b27e44804fd34008).
 
 = Can I help you? =
 

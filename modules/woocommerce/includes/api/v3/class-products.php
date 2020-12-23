@@ -124,7 +124,7 @@ if ( ! class_exists( 'AIFW_Api_V3_Products_Controller' ) && class_exists( 'WC_RE
              * @param array   $params   The category/tag object.
              * @param string  $taxonomy The taxonomy (product_cat|product_tag).
              */
-            return apply_filters( 'aifw_api_v3_products_search_for_terms', 0, $params, $taxonomy );
+            return apply_filters( 'aifw_api_v3_products_term_not_found', 0, $params, $taxonomy );
         }
     }
 
