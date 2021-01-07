@@ -25,11 +25,11 @@ We support V3.
 
 = /products =
 
-* Will search for a category/tag by "name" and "slug" (in this order) if "id" is not provided.
+* Will search for a category/tag by "name" and "slug" (in this order) if "id" is not provided (or empty).
+* Will search for attribute ID if it's not provided (or empty). Check [wc_attribute_taxonomy_id_by_name](https://woocommerce.github.io/code-reference/files/woocommerce-includes-wc-attribute-functions.html#function_wc_attribute_taxonomy_id_by_name) for more details.
 
-In both cases, **we will not** create a new product category or tag. You can use the "aifw_api_v1_products_search_for_terms" filter to create it and return the "term_id".
-
-* Will search for attribute ID if it's not provided. Check [wc_attribute_taxonomy_id_by_name](https://woocommerce.github.io/code-reference/files/woocommerce-includes-wc-attribute-functions.html#function_wc_attribute_taxonomy_id_by_name) for more details.
+In both cases, **we will not** create a new product attribute, category or tag. You can use the "aifw_api_v1_products_search_for_terms" filter to create it and return the "term_id".
+WooCommerce will keep the attribute for product only if a taxonomy was not found.
 
 = How to Use =
 

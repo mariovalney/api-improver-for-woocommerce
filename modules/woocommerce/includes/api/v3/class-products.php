@@ -83,6 +83,9 @@ if ( ! class_exists( 'AIFW_Api_V3_Products_Controller' ) && class_exists( 'WC_RE
                     continue;
                 }
 
+                // Avoid Notice if id is not sent
+                $terms[ $key ]['id'] = 0;
+
                 $term_id = $this->search_for_terms( $value, $taxonomy );
                 if ( empty( $term_id ) ) {
                     continue;
@@ -126,6 +129,7 @@ if ( ! class_exists( 'AIFW_Api_V3_Products_Controller' ) && class_exists( 'WC_RE
              */
             return apply_filters( 'aifw_api_v3_products_term_not_found', 0, $params, $taxonomy );
         }
+
     }
 
 }

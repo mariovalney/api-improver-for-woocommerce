@@ -4,7 +4,7 @@
  * Plugin Name:     API Improver for WooCommerce
  * Plugin URI:      https://github.com/mariovalney/api-improver-for-woocommerce
  * Description:     Improve your WooCommerce API REST
- * Version:         1.0.0
+ * Version:         1.1.0
  * License:         GPLv2 or later
  * Author:          Mário Valney
  * Author URI:      https://mariovalney.com
@@ -288,7 +288,7 @@ if ( ! class_exists( 'API_Improver_For_WooCommerce' ) ) {
          */
         public function run() {
             // Definitions to plugin
-            define( 'AIFW_VERSION', '1.0.0' );
+            define( 'AIFW_VERSION', '1.1.0' );
             define( 'AIFW_PLUGIN_FILE', __FILE__ );
             define( 'AIFW_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
             define( 'AIFW_PLUGIN_PATH', WP_PLUGIN_DIR . '/' . dirname( AIFW_PLUGIN_BASENAME ) );
